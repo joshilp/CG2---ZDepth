@@ -6,13 +6,13 @@ public class ZBufferingDrawable extends DrawableDecorator {
 	private int col;
 	private double [][] zbuffer;
 
-	public ZBufferingDrawable(Drawable delegate) {
+	public ZBufferingDrawable(Drawable delegate) 
+	{
 		super(delegate);
 		row = delegate.getHeight();
 		col = delegate.getWidth();
 		zbuffer = new double[row][col];
 		reset_z();
-		
 	}
 
 	@Override
@@ -22,18 +22,17 @@ public class ZBufferingDrawable extends DrawableDecorator {
 	}
 	
 	@Override
-	public void setPixel(int x, int y, double z, int argbColor) {
+	public void setPixel(int x, int y, double z, int argbColor)
+	{
 		if (z > zbuffer[y][x])
 		{
-//			System.out.println("settings with z");
 			delegate.setPixel(x, y, z, argbColor);
 			zbuffer[y][x] = z;
 		}
 	}
 	
-	
-	
-	private void reset_z(){
+	private void reset_z()
+	{
 		for (int y = 0; y < row; y++) {
 			for (int x = 0; x < col; x++) {
 				zbuffer[y][x] = -200;

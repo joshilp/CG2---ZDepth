@@ -15,9 +15,7 @@ public class ColorPolygonRenderer implements PolygonRenderer {
 	@Override
 	public void drawPolygon(Polygon polygon, Drawable drawable, Shader vertexShader) {
 		
-		LineRenderer DDAdrawer = DDALineRenderer.make();
-		
-		//polygon = Polygon.makeEnsuringClockwise(polygon.get(0),polygon.get(1),polygon.get(2));		
+		LineRenderer DDAdrawer = DDALineRenderer.make();	
 		
 		Chain LChain = polygon.leftChain();
 		Chain RChain = polygon.rightChain();
@@ -199,6 +197,4 @@ public class ColorPolygonRenderer implements PolygonRenderer {
 	public static PolygonRenderer make() {
 		return new ColorPolygonRenderer();
 	}
-	
 }
-	
